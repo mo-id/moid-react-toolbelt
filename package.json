@@ -1,6 +1,6 @@
 {
   "name": "@mo-id/react-toolbelt",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "repository": "https://github.com/mo-id/moid-react-toolbelt.git",
