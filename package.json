@@ -1,5 +1,6 @@
 {
   "name": "@mo-id/react-toolbelt",
+  "repository": "git://github.com/mo-id/moid-react-toolbelt.git",
   "author": "moid",
   "version": "0.1.0",
   "license": "MIT",
