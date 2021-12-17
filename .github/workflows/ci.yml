@@ -1,0 +1,35 @@
+# This workflow will do a clean install of node dependencies,
+# build the source code and run tests
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  build:
+    name: Build, lint, compile and test on Node ${{ matrix.node }} and ${{ matrix.os }}
+
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          # minimum version supported by our dependencies (Jest)
+          node-version: 14.15
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - run: yarn install
+      - run: yarn compile
+      - run: yarn build
+      - run: yarn test
