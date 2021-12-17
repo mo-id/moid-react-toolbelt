@@ -1,8 +1,8 @@
-import { act, renderHook } from "@testing-library/react-hooks";
-import { useBoolean } from "../useBoolean";
+import { act, renderHook } from '@testing-library/react-hooks';
+import { useBoolean } from '../useBoolean';
 
-describe("hooks / useBoolean", () => {
-  it("allows to handle boolean values", () => {
+describe('hooks / useBoolean', () => {
+  it('allows to handle boolean values', () => {
     const { result } = renderHook(() => useBoolean(false));
     let [value, setTrue, setFalse, set, toggle] = result.current;
 

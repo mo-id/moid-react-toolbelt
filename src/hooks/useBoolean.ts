@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 export type UseBoolean = [
-  value: boolean,
-  trueSetter: () => void,
-  falseSetter: () => void,
-  valueSetter: (newValue: boolean) => void,
-  toggler: () => void
+  boolean,
+  () => void,
+  () => void,
+  (newValue: boolean) => void,
+  () => void
 ];
 
 export function useBoolean(
