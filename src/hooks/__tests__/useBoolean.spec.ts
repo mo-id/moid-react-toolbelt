@@ -4,32 +4,32 @@ import { useBoolean } from "../useBoolean";
 describe("hooks / useBoolean", () => {
   it("allows to handle boolean values", () => {
     const { result } = renderHook(() => useBoolean(false));
-    let [value, setTrue, setFalse, set, toggle] = result.current;
+    let { value, setTrue, setFalse, setValue, toggler } = result.current;
 
     expect(value).toBe(false);
 
     act(() => {
       setTrue();
     });
-    [value, , setFalse] = result.current;
+    ({ value, setFalse } = result.current);
     expect(value).toBe(true);
 
     act(() => {
       setFalse();
     });
-    [value, , , set] = result.current;
+    ({ value, setValue } = result.current);
     expect(value).toBe(false);
 
     act(() => {
-      set(true);
+      setValue(true);
     });
-    [value, , , , toggle] = result.current;
+    ({ value, toggler } = result.current);
     expect(value).toBe(true);
 
     act(() => {
-      toggle();
+      toggler();
     });
-    [value] = result.current;
+    ({ value } = result.current);
     expect(value).toBe(false);
   });
 });

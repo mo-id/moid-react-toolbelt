@@ -1,23 +1,23 @@
 import { useState } from "react";
 
-export type UseBoolean = [
-  boolean,
-  () => void,
-  () => void,
-  (newValue: boolean) => void,
-  () => void
-];
+export type UseBoolean = {
+  value: boolean;
+  setTrue: () => void;
+  setFalse: () => void;
+  setValue: (newValue: boolean) => void;
+  toggler: () => void;
+};
 
 export function useBoolean(
   initialState: boolean | (() => boolean)
 ): UseBoolean {
   const [value, setValue] = useState(initialState);
 
-  return [
+  return {
     value,
-    () => setValue(true),
-    () => setValue(false),
+    setTrue: () => setValue(true),
+    setFalse: () => setValue(false),
     setValue,
-    () => setValue(!value),
-  ];
+    toggler: () => setValue(!value),
+  };
 }
