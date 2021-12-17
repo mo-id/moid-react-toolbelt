@@ -1,4 +1,6 @@
 {
+  "name": "moid-react-toolbelt",
+  "author": "moid",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -28,8 +30,6 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "name": "moid-react-toolbelt",
-  "author": "moid",
   "module": "dist/moid-react-toolbelt.esm.js",
   "size-limit": [
     {
