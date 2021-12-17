@@ -4,15 +4,15 @@ import * as ReactDOM from "react-dom";
 import { useBoolean } from "../.";
 
 const App = () => {
-  const [checked, , , check] = useBoolean(false);
+  const { value, setValue } = useBoolean(false);
 
   return (
     <div>
       <input
         type="checkbox"
-        checked={checked}
+        checked={value}
         onChange={() => {
-          check(!checked);
+          setValue(!value);
         }}
       />
     </div>
