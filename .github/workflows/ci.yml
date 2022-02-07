@@ -27,9 +27,14 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
 
-      - run: yarn install
-      - run: yarn compile
-      - run: yarn build
-      - run: yarn test
+      - uses: ferluisxd/create-npmrc@3
+        with:
+          org_name: mo-id
+          auth_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: npm install
+      - run: npm run compile
+      - run: npm run build
+      - run: npm test
