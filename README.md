@@ -15,8 +15,4 @@
 
 ## How to install
 
-- Generate a token to access GitHub
-- Generate a .npmrc file in the root of the project
-  - //npm.pkg.github.com/:\_authToken=GITHUB_TOKEN
-  - registry=https://npm.pkg.github.com
-- run `yarn add @mo-id/react-toolbelt`
+- run `yarn add https://github.com/mo-id/moid-react-toolbelt.git`
