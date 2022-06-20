@@ -38,7 +38,7 @@
     }
   ],
   "devDependencies": {
-    "@mo-id/typescript-toolbelt": "^0.1.6",
+    "@mo-id/typescript-toolbelt": "https://github.com/mo-id/moid-typescript-toolbelt.git",
     "@size-limit/preset-small-lib": "^7.0.4",
     "@testing-library/dom": "^8.11.1",
     "@testing-library/react-hooks": "^7.0.2",
