@@ -30,8 +30,8 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-
-      - run: yarn install
+      - run: yarn cache clean
+      - run: yarn install --network-concurrency 1
       - run: yarn compile
       - run: yarn build
       - run: yarn test
