@@ -10,8 +10,12 @@ import {
 import { Nullable, OneOrMore } from "@mo-id/typescript-toolbelt";
 
 interface UseChildren {
-  getChildrenOfType(type: ComponentType): Nullable<OneOrMore<ReactElement>>;
-  excludeChildrenOfType(type: ComponentType): Nullable<OneOrMore<ReactElement>>;
+  getChildrenOfType<Props = any>(
+    type: ComponentType<Props>
+  ): Nullable<OneOrMore<ReactElement>>;
+  excludeChildrenOfType<Props = any>(
+    type: ComponentType<Props>
+  ): Nullable<OneOrMore<ReactElement>>;
 }
 
 function isReactElement(child: ReactNode): child is ReactElement {
@@ -33,7 +37,7 @@ export function useChildren(children: ReactNode): UseChildren {
       return elements;
     }
 
-    function excludeChildrenOfType(type: ComponentType) {
+    function excludeChildrenOfType<Props = any>(type: ComponentType<Props>) {
       const elements = asArray.filter(
         (child: ReactNode) => isReactElement(child) && child.type !== type
       ) as ReactElement[];
