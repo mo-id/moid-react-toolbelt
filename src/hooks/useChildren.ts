@@ -22,7 +22,7 @@ export function useChildren(children: ReactNode): UseChildren {
   return useMemo(() => {
     const asArray = Children.toArray(children);
 
-    function getChildrenOfType(type: ComponentType<any>) {
+    function getChildrenOfType<Props = any>(type: ComponentType<Props>) {
       const elements = asArray.filter(
         (child: ReactNode) => isReactElement(child) && child.type === type
       ) as ReactElement[];
